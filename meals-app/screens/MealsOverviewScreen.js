@@ -10,12 +10,22 @@ const MealsOverviewScreen = ({route}) => {
     const displayMEALS =MEALS.filter(mealItem => mealItem.categoryIds.indexOf(categoryId) >=0);
 
     const renderMealItems = (itemData) => {
-        return <MealItem title={itemData.item.title}/>
+        const item =itemData.item;
+
+        const mealItemProps ={
+            title: item.title,
+            ImageUrl: item.ImageUrl,
+            complexity: item.complexity,
+            affordability:item.affordability,
+            duration:item.duration,
+        }
+
+        return <MealItem {...mealItemProps}/>
     }
 
-return <View style={style.container}>
-    <FlatList data={displayMEALS} keyExtractor={(item) => item.id} renderItem={renderMealItems}/>
-</View>
+        return <View style={style.container}>
+                    <FlatList data={displayMEALS} keyExtractor={(item) => item.id} renderItem={renderMealItems}/>
+                </View>
 }
 
 const style= StyleSheet.create({
