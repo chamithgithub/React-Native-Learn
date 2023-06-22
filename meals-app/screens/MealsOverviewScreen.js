@@ -5,13 +5,14 @@ import MealItem from "../components/MealItem";
 
 const MealsOverviewScreen = ({route}) => {
 
-    const { categoryId } =route.params;
+    const  catId =route.params.categoryId;
 
-    const displayMEALS =MEALS.filter(mealItem => mealItem.categoryIds.indexOf(categoryId) >=0);
+    const displayMeals =MEALS.filter(mealItem =>{
+       return  mealItem.categoryIds.indexOf(catId) >=0
+    });
 
     const renderMealItems = (itemData) => {
         const item =itemData.item;
-
         const mealItemProps ={
             id:item.id,
             title: item.title,
@@ -25,7 +26,7 @@ const MealsOverviewScreen = ({route}) => {
     }
 
         return <View style={style.container}>
-                    <FlatList data={displayMEALS} keyExtractor={(item) => item.id} renderItem={renderMealItems}/>
+                    <FlatList data={displayMeals} keyExtractor={(item) => item.id} renderItem={renderMealItems}/>
                 </View>
 }
 

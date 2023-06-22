@@ -1,5 +1,5 @@
 import { View,Text,StyleSheet } from "react-native"
-const MealDetail =({complexity,duration,affordability,style,textStyle})=>{
+const MealDetails =({complexity,duration,affordability,style,textStyle})=>{
     return (
         <View style={[styles.details,style]}>
         <Text style={[styles.detailItem, textStyle]}>{duration}m</Text>
@@ -23,4 +23,4 @@ const styles =StyleSheet.create({
     }
 })
 
-export default MealDetail ;
+export default MealDetails ;
